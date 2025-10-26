@@ -40,9 +40,9 @@
   --highlight-aqua: #479d9d;
   --highlight-blue: #1973b8;
   --highlight-purple: #7135ac;
-  --cursor-default: url("../images/cursor/knd_page_01.png"), auto;
-  --cursor-pointer: url("../images/cursor/knd_page_01.png"), pointer;
-  --cursor-text: url("../images/cursor/knd_type_page_01.png"), text;
+  --cursor-default: url("../images/cursor/knd_page_01_resized.png"), auto;
+  --cursor-pointer: url("../images/cursor/knd_page_01_resized.png"), pointer;
+  --cursor-text: url("../images/cursor/knd_type_page_01_resized.png"), text;
   --footer-icon: url("../images/taichi.png");
   --sponsor-icon: url("../images/taichi.png");
   --top-icon: url("../images/taichi.png");
