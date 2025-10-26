@@ -14,7 +14,7 @@
 
   
 
-  <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_4k4bc36ef96';window.REIMU_CONFIG.clipboard_tips = {"success":{"en":"Copy successfully (*^▽^*)"},"fail":{"en":"Copy failed (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = 'All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://yakumomukari.github.io';</script>
+  <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_4k4bc36ef96';window.REIMU_CONFIG.clipboard_tips = {"success":{"en":"Copy successfully (∠・ω< )⌒★"},"fail":{"en":"Copy failed (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = 'All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!';window.REIMU_CONFIG.outdate = {"enable":true,"daysAgo":180,"message":{"en":"This article was last updated on {time}. Please note that the content may no longer be applicable.","zh-CN":"本文最后更新于 {time}，请注意文中内容可能已不适用。","zh-TW":"本文最後更新於 {time}，請注意文中內容可能已不適用。","ja":"この記事は最終更新日：{time}。記載内容が現在有効でない可能性がありますのでご注意ください。","pt-BR":"Este artigo foi atualizado pela última vez em {time}. Observe que o conteúdo pode não ser mais aplicável."}};window.REIMU_CONFIG.code_block = {"expand":50};window.REIMU_CONFIG.base = 'https://yakumomukari.github.io';</script>
   
   <title>
     
@@ -241,7 +241,7 @@
   </div>
   <div class="sidebar-state-tag">
     <div>Tag</div>
-    <div class="sidebar-state-number">0</div>
+    <div class="sidebar-state-number">1</div>
   </div>
 </div>
 <div class="sidebar-social">
@@ -308,34 +308,44 @@
 
           <section id="main" aria-label="Main content">
   
+    <div class="post-categories-wrapper" data-aos="fade-up">
+      
+        
+      
+        
+      
+    </div>
+  
   
     
     
       <div class="post-wrapper">
   <div class="post-wrap left" data-aos="fade-up">
     
-      <a class="post-link" href="/2013/12/24/hello-world/" aria-label="Hello World" title="Hello World"></a>
+      <a class="post-link" href="/2025/10/26/nothing/" aria-label="nothing" title="nothing"></a>
     
+    
+      <div class="post-sticky">Top</div>
     
     <div class="post-cover left">
       
         
         
-          <img data-src="https://cdn.luogu.com.cn/upload/image_hosting/lcrskv17.png" data-sizes="auto" alt="Hello World" class="lazyload">
+          <img data-src="https://cdn.luogu.com.cn/upload/image_hosting/lcrskv17.png" data-sizes="auto" alt="nothing" class="lazyload">
         
       
     </div>
     <div class="post-info">
       <div class="post-meta">
-        <span><span class="icon-calendar"></span>2013-12-24</span>
+        <span><span class="icon-calendar"></span>2025-10-26</span>
         
-        <span><span class="icon-pencil"></span>16 words</span>
+        <span><span class="icon-pencil"></span>8 words</span>
         <span><span class="icon-clock"></span>1 min</span>
       </div>
-      <h2 class="post-title">Hello World</h2>
+      <h2 class="post-title">nothing</h2>
       <article class="post-article">
         
-          Welcome to Hexo! This is your very first post. Check documentation to learn how to use.
+          我很可爱，请给我钱
 
         
       </article>
@@ -361,7 +371,7 @@
       
       
       
-        2020-2025
+        2025
       
       <span class="footer-info-sep rotate"></span>
       mukari
@@ -375,7 +385,7 @@
     
       <div>
         <span class="icon-brush"></span>
-        16
+        8
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
         00:01
@@ -384,14 +394,6 @@
     
     
     
-    
-      <div>
-        <span class="icon-eye"></span>
-        <span id="busuanzi_container_site_pv">Number of visits&nbsp;<span id="busuanzi_value_site_pv"></span></span>
-        &nbsp;|&nbsp;
-        <span class="icon-user"></span>
-        <span id="busuanzi_container_site_uv">Number of visitors&nbsp;<span id="busuanzi_value_site_uv"></span></span>
-      </div>
     
   </div>
 </footer>
@@ -423,7 +425,7 @@
   </div>
   <div class="sidebar-state-tag">
     <div>Tag</div>
-    <div class="sidebar-state-number">0</div>
+    <div class="sidebar-state-number">1</div>
   </div>
 </div>
 <div class="sidebar-social">
@@ -544,6 +546,10 @@
 
 
 
+  
+<script src="https://npm.webcache.cn/live2d-widgets@0.9.0/autoload.js" integrity="sha384-poTN7wN&#x2F;SqNhQqo3jdFeX20ikddWeFGkUkDEzsKjgH&#x2F;ez8aQLn81oI0Cw6q5xNyB" crossorigin="anonymous"></script>
+
+
 
 
 
@@ -572,10 +578,34 @@
   </script>
   
 
+<script data-pjax>
+  var updateTime = _$('#post-update-time')?.innerHTML;
 
-
-  
-<script src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js" integrity="sha384-0M75wtSkhjIInv4coYlaJU83+OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id+S" crossorigin="anonymous" async></script>
+  if (updateTime) {
+    const update = new Date(updateTime);
+    const now = new Date();
+    const diff = now - update;
+    const days = diff / 86400000;
+    const { daysAgo, message: template } = window.REIMU_CONFIG.outdate;
+    if (days >= daysAgo) {
+      let message = `This article was last updated on ${updateTime}. Please note that the content may no longer be applicable.`;
+      if (typeof template === 'string') {
+        message = template.replace(/{time}/, updateTime);
+      } else if (typeof template === 'object') {
+        const lang = document.documentElement.lang;
+        const messageKey = Object.keys(template).find(key => key.toLowerCase() === lang.toLowerCase());
+        if (messageKey && template[messageKey]) {
+          message = template[messageKey].replace(/{time}/, updateTime);
+        }
+      }
+      const blockquote = _$('#outdate-blockquote');
+      if (blockquote) {
+        blockquote.querySelectorAll('p')[1].innerText = message;
+        blockquote.style.display = 'flow-root';
+      }
+    }
+  }
+</script>
 
 
 
