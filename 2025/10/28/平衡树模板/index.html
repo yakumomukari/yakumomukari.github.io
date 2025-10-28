@@ -1,0 +1,847 @@
+
+  <!DOCTYPE html>
+  <html lang="en"  
+    
+      data-theme-mode="auto"
+    
+  >
+  <head>
+  
+  <meta charset="utf-8">
+  
+
+  
+
+  
+
+  <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_4k4bc36ef96';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (∠・ω< )⌒★","en":"Copy successfully (∠・ω< )⌒★"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ","en":"Copy failed (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = 'All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!';window.REIMU_CONFIG.outdate = {"enable":true,"daysAgo":180,"message":{"en":"This article was last updated on {time}. Please note that the content may no longer be applicable.","zh-CN":"本文最后更新于 {time}，请注意文中内容可能已不适用。","zh-TW":"本文最後更新於 {time}，請注意文中內容可能已不適用。","ja":"この記事は最終更新日：{time}。記載内容が現在有効でない可能性がありますのでご注意ください。","pt-BR":"Este artigo foi atualizado pela última vez em {time}. Observe que o conteúdo pode não ser mais aplicável."}};window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://yakumomukari.github.io';window.REIMU_CONFIG.i18n_languages = ["en"];</script>
+  
+  <title>
+    平衡树模板 |
+    
+    mukari&#39;s wonderland
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7CNoto%20Serif%20SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7CNoto%20Serif%20SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media&#x3D;&#39;all&#39;">
+  
+  
+    <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_4k4bc36ef96.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  
+  
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+  
+  
+    <meta name="description" content="题目传送门 前言因为平衡树有太多种方法实现，所以在这里记录一下各种实现方法。 代码1.替罪羊树123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081">
+<meta property="og:type" content="article">
+<meta property="og:title" content="平衡树模板">
+<meta property="og:url" content="https://yakumomukari.github.io/2025/10/28/%E5%B9%B3%E8%A1%A1%E6%A0%91%E6%A8%A1%E6%9D%BF/index.html">
+<meta property="og:site_name" content="mukari&#39;s wonderland">
+<meta property="og:description" content="题目传送门 前言因为平衡树有太多种方法实现，所以在这里记录一下各种实现方法。 代码1.替罪羊树123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-10-28T04:47:58.000Z">
+<meta property="article:modified_time" content="2025-10-28T06:04:35.603Z">
+<meta property="article:author" content="mukari">
+<meta property="article:tag" content="模板">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="alternate" href="/atom.xml" title="mukari's wonderland" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="preload" as="style" onload="this.onload&#x3D;null;this.rel&#x3D;&#39;stylesheet&#39;" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL&#x2F;toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx&#x2F;1oA&#x2F;0l8ysE" crossorigin="anonymous">
+  
+    
+      
+        
+<link rel="stylesheet" href="https://npm.webcache.cn/katex@0.16.24/dist/katex.min.css" integrity="sha384-tTgKLjMYmJr94v8qu2PE5MUGSMbyN2xiH266JUB3gpm8vnnJywd1dWSOEfrFz+YI" crossorigin="anonymous">
+
+      
+    
+  
+  
+  
+  
+    
+<script src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js" integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script>
+
+  
+  
+    
+<link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.2/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
+
+  
+  
+  
+<meta name="generator" content="Hexo 8.0.0"></head>
+
+  <body>
+    
+    
+  <div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate">
+        
+          <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+           M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg>
+        
+      </div>
+      
+      
+        
+      
+      <div class="loading-word">Loading...</div>
+    </div>
+  </div>
+  </div>
+  <script>
+    var time = null;
+    var loaderEl = document.getElementById('loader');
+    var startLoading = () => {
+      time = Date.now();
+      loaderEl.classList.remove("loading");
+    }
+    var hideLoader = () => {
+      document.body.style.overflow = 'auto';
+      loader.classList.add('loading');
+    };
+
+    var endLoading = () => {
+      if (!time) {
+        hideLoader();
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          hideLoader();
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    loaderEl.addEventListener('click', endLoading);
+  </script>
+
+<div id="copy-tooltip"></div>
+<div id="heatmap-tooltip"></div>
+
+
+    <div id="container">
+      <div id="wrap">
+        <div id="header-nav">
+  <nav id="main-nav" aria-label="Primary navigation">
+    
+      
+        <a class="main-nav-link-wrap" href="/en/">
+          <div class="main-nav-icon icon rotate">
+             
+              &#xe62b;
+             
+          </div>
+          <span class="main-nav-link">Home</span>
+        </span>
+      
+        <a class="main-nav-link-wrap" href="/en/archives">
+          <div class="main-nav-icon icon rotate">
+             
+              &#xe62b;
+             
+          </div>
+          <span class="main-nav-link">Archives</span>
+        </span>
+      
+        <a class="main-nav-link-wrap" href="/en/about">
+          <div class="main-nav-icon icon rotate">
+             
+              &#xe62b;
+             
+          </div>
+          <span class="main-nav-link">About</span>
+        </span>
+      
+        <a class="main-nav-link-wrap" href="/en/friend">
+          <div class="main-nav-icon icon rotate">
+             
+              &#xe62b;
+             
+          </div>
+          <span class="main-nav-link">Friend</span>
+        </span>
+      
+    
+    <a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
+  </nav>
+  <nav id="sub-nav" aria-label="Secondary navigation">
+    
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed" aria-label="RSS Feed" target="_blank"></a>
+    
+    
+  </nav>
+  
+    
+    <nav id="i18n-nav" aria-label="Language selection">
+      <div class="custom-dropdown">
+        <div class="select-selected" id="select-selected" role="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Language menu">
+          <span id="nav-language-btn" class="nav-icon" style="padding: 0 20px 0 0"></span>
+          <span id="selected-lang">English</span>
+        </div>
+        <ul class="select-items" id="select-items" role="listbox" aria-label="Languages">
+          
+            <li data-value="zh-CN" role="option" aria-selected="false">简体中文</li>
+          
+            <li data-value="en" role="option" class="selected" aria-selected="true">English</li>
+          
+        </ul>
+      </div>
+      <script>
+        var selectSelected = document.getElementById("select-selected");
+        var selectedLang = document.getElementById("selected-lang");
+        var selectItems = document.getElementById("select-items");
+        var selectOptions = selectItems.querySelectorAll("li");
+
+        selectSelected.addEventListener("click", () => {
+          selectItems.classList.toggle("show");
+          var expanded = selectSelected.getAttribute("aria-expanded") === "true";
+          selectSelected.setAttribute("aria-expanded", (!expanded).toString());
+        });
+
+        selectOptions.forEach((item) => {
+          item.addEventListener("click", () => {
+            const langMap = {};
+            
+              langMap['zh-CN'] = '/2025/10/28/平衡树模板/';
+            
+              langMap['en'] = '/en/2025/10/28/平衡树模板/';
+            
+            selectedLang.textContent = item.textContent;
+            selectItems.classList.remove("show");
+            selectOptions.forEach((option) => {
+              option.classList.remove("selected");
+            });
+            item.classList.add("selected");
+            window.location = langMap[item.dataset.value];
+          });
+        });
+
+        document.addEventListener("click", (event) => {
+          if (!event.target.closest(".custom-dropdown")) {
+            selectItems.classList.remove("show");
+            selectSelected.setAttribute("aria-expanded", "false");
+          }
+        });
+      </script>
+    </nav>
+  
+  
+</div>
+<header id="header" aria-label="Site header">
+  
+    
+      
+        <picture>
+          
+        </picture>
+        
+          <img crossorigin="anonymous" fetchpriority="high" src="/images/banner.webp" alt="平衡树模板">
+        
+      
+    
+  
+  <div id="header-outer">
+    <div id="header-title">
+      
+        
+        
+          <span id="logo">
+            <h1 data-aos="slide-up">平衡树模板</h1>
+          </span>
+        
+      
+      
+        
+        <h2 id="subtitle-wrap" data-aos="slide-down">
+          
+        </h2>
+      
+    </div>
+  </div>
+</header>
+
+        <div id="content" aria-label="Page content"  class="sidebar-right" >
+          <aside id="sidebar" aria-label="Sidebar">
+  
+  <div class="sidebar-wrapper-container sticky">
+  
+    
+    
+  
+ 
+  <div class="sidebar-wrapper">
+    <div class="sidebar-wrap" data-aos="fade-up">
+      
+        
+          <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+  
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-number">2.</span> <span class="toc-text">代码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%9B%BF%E7%BD%AA%E7%BE%8A%E6%A0%91"><span class="toc-number">2.1.</span> <span class="toc-text">1.替罪羊树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Treap"><span class="toc-number">2.2.</span> <span class="toc-text">2.Treap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Splay"><span class="toc-number">2.3.</span> <span class="toc-text">3.Splay</span></a></li></ol></li></ol>
+  
+</div>
+</div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.webp" data-sizes="auto" alt="mukari" class="lazyload">
+  <div class="sidebar-author-name">mukari</div>
+  <div class="sidebar-description"></div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Post</div>
+    <div class="sidebar-state-number">11</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Category</div>
+    <div class="sidebar-state-number">1</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tag</div>
+    <div class="sidebar-state-number">2</div>
+  </div>
+</div>
+<div class="sidebar-social">
+  
+</div>
+<div class="sidebar-menu">
+  
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/" aria-label="Home"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">Home</div>
+      </div>
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/archives" aria-label="Archives"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">Archives</div>
+      </div>
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/about" aria-label="About"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">About</div>
+      </div>
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/friend" aria-label="Friend"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">Friend</div>
+      </div>
+    
+  
+</div>
+</div>
+        
+      
+      
+        
+          <div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div>
+        
+      
+    </div>
+  </div>
+  
+  <div class="sidebar-widget">
+  
+  </div>
+  
+  </div>
+  
+</aside>
+
+          <section id="main" aria-label="Main content"><article id="post-平衡树模板" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner" data-aos="fade-up">
+    <div class="article-meta">
+      <div class="article-date">
+  <span class="article-date-link icon-calendar" data-aos="zoom-in">
+    <time datetime="2025-10-28T04:47:58.000Z" itemprop="datePublished">2025-10-28</time>
+    <time style="display: none;" id="post-update-time">2025-10-28</time>
+  </span>
+  
+</div>
+
+      
+
+    </div>
+    
+    <div class="hr-line"></div>
+    
+
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <div class="warning custom-block" id="outdate-blockquote" style="display: none;">
+          <p class="custom-block-title">WARNING</p>
+          <p></p>
+        </div>
+      
+      
+        <p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3369">题目传送门</a></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>因为平衡树有太多种方法实现，所以在这里记录一下各种实现方法。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><h3 id="1-替罪羊树"><a href="#1-替罪羊树" class="headerlink" title="1.替罪羊树"></a>1.替罪羊树</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ma 1145141</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> il inline</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function">ll <span class="title">read</span><span class="params">()</span></span>&#123;</span><br><span class="line">	ll x=<span class="number">0</span>,f=<span class="number">1</span>;</span><br><span class="line">	<span class="type">char</span> ch=<span class="built_in">getchar</span>();</span><br><span class="line">	<span class="keyword">while</span>(<span class="string">&#x27;0&#x27;</span>&gt;ch||ch&gt;<span class="string">&#x27;9&#x27;</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(ch==<span class="string">&#x27;-&#x27;</span>) f=<span class="number">-1</span>;</span><br><span class="line">		ch=<span class="built_in">getchar</span>();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(<span class="string">&#x27;0&#x27;</span>&lt;=ch&amp;&amp;ch&lt;=<span class="string">&#x27;9&#x27;</span>)&#123;</span><br><span class="line">		x=x*<span class="number">10</span>+ch-<span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">		ch=<span class="built_in">getchar</span>();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> x*f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">const</span> <span class="type">double</span> alpha=<span class="number">0.75</span>;</span><br><span class="line">ll n,st,root,cnt,tot,Void[ma&lt;&lt;<span class="number">1</span>],cur[ma&lt;&lt;<span class="number">1</span>];</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">scapegoat</span>&#123;</span><br><span class="line">	ll son[<span class="number">2</span>];</span><br><span class="line">	ll val;</span><br><span class="line">	ll siz,fac;</span><br><span class="line">	ll ext;</span><br><span class="line">&#125;a[ma&lt;&lt;<span class="number">1</span>];</span><br><span class="line"><span class="function">il <span class="type">void</span> <span class="title">init</span><span class="params">()</span></span>&#123;</span><br><span class="line">	tot=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(ll i=ma<span class="number">-1</span>;i;i--) Void[++tot]=i;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">il <span class="type">bool</span> <span class="title">balance</span><span class="params">(ll x)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> (<span class="type">double</span>)a[x].fac*alpha&gt;(<span class="type">double</span>)<span class="built_in">max</span>(a[a[x].son[<span class="number">0</span>]].fac,a[a[x].son[<span class="number">1</span>]].fac);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">il <span class="type">void</span> <span class="title">build</span><span class="params">(ll x)</span></span>&#123;</span><br><span class="line">	a[x].son[<span class="number">0</span>]=a[x].son[<span class="number">1</span>]=<span class="number">0</span>,a[x].siz=a[x].fac=<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">il <span class="type">void</span> <span class="title">pushup</span><span class="params">(ll x)</span></span>&#123;</span><br><span class="line">	a[x].siz=a[a[x].son[<span class="number">0</span>]].siz+a[a[x].son[<span class="number">1</span>]].siz<span class="number">+1</span>,a[x].fac=a[a[x].son[<span class="number">0</span>]].fac+a[a[x].son[<span class="number">1</span>]].fac<span class="number">+1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">il <span class="type">void</span> <span class="title">insert</span><span class="params">(ll &amp;x,ll val)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(!x)&#123;</span><br><span class="line">		x=Void[tot--],a[x].val=val,a[x].ext=<span class="number">1</span>,<span class="built_in">build</span>(x);</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	a[x].siz++,a[x].fac++;</span><br><span class="line">	<span class="keyword">if</span>(val&lt;=a[x].val) <span class="built_in">insert</span>(a[x].son[<span class="number">0</span>],val);</span><br><span class="line">	<span class="keyword">else</span> <span class="built_in">insert</span>(a[x].son[<span class="number">1</span>],val);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">il <span class="type">void</span> <span class="title">down_tree</span><span class="params">(ll x)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(!x) <span class="keyword">return</span>;</span><br><span class="line">	<span class="built_in">down_tree</span>(a[x].son[<span class="number">0</span>]);</span><br><span class="line">	<span class="keyword">if</span>(a[x].ext) cur[++cnt]=x;</span><br><span class="line">	<span class="keyword">else</span> Void[++tot]=x;</span><br><span class="line">	<span class="built_in">down_tree</span>(a[x].son[<span class="number">1</span>]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">il <span class="type">void</span> <span class="title">up_tree</span><span class="params">(ll l,ll r,ll &amp;x)</span></span>&#123;</span><br><span class="line">	ll mid=(l+r)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">	x=cur[mid];</span><br><span class="line">	<span class="keyword">if</span>(l==r)&#123;</span><br><span class="line">		<span class="built_in">build</span>(x);</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(l&lt;mid) <span class="built_in">up_tree</span>(l,mid<span class="number">-1</span>,a[x].son[<span class="number">0</span>]);</span><br><span class="line">	<span class="keyword">else</span> a[x].son[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">	<span class="built_in">up_tree</span>(mid<span class="number">+1</span>,r,a[x].son[<span class="number">1</span>]);</span><br><span class="line">	<span class="built_in">pushup</span>(x);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">il <span class="type">void</span> <span class="title">rebuild</span><span class="params">(ll &amp;x)</span></span>&#123;</span><br><span class="line">	cnt=<span class="number">0</span>;</span><br><span class="line">	<span class="built_in">down_tree</span>(x);</span><br><span class="line">	<span class="keyword">if</span>(cnt) <span class="built_in">up_tree</span>(<span class="number">1</span>,cnt,x);</span><br><span class="line">	<span class="keyword">else</span> x=<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">il ll <span class="title">get_rank</span><span class="params">(ll val)</span></span>&#123;</span><br><span class="line">	ll x=root,rk=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span>(x)&#123;</span><br><span class="line">		<span class="keyword">if</span>(a[x].val&gt;=val) x=a[x].son[<span class="number">0</span>];</span><br><span class="line">		<span class="keyword">else</span> rk+=a[a[x].son[<span class="number">0</span>]].fac+a[x].ext,x=a[x].son[<span class="number">1</span>];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> rk;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">il ll <span class="title">get_val</span><span class="params">(ll rk)</span></span>&#123;</span><br><span class="line">	ll x=root;</span><br><span class="line">	<span class="keyword">while</span>(x)&#123;</span><br><span class="line">		<span class="keyword">if</span>(a[x].ext&amp;&amp;a[a[x].son[<span class="number">0</span>]].fac<span class="number">+1</span>==rk) <span class="keyword">return</span> a[x].val;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(a[a[x].son[<span class="number">0</span>]].fac&gt;=rk) x=a[x].son[<span class="number">0</span>];</span><br><span class="line">		<span class="keyword">else</span> rk-=a[x].ext+a[a[x].son[<span class="number">0</span>]].fac,x=a[x].son[<span class="number">1</span>];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">il <span class="type">void</span> <span class="title">Del</span><span class="params">(ll &amp;x,ll rk)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(a[x].ext&amp;&amp;!((a[a[x].son[<span class="number">0</span>]].fac<span class="number">+1</span>)^rk))&#123;</span><br><span class="line">		a[x].ext=<span class="number">0</span>,a[x].fac--;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	a[x].fac--;</span><br><span class="line">	<span class="keyword">if</span>(a[a[x].son[<span class="number">0</span>]].fac+a[x].ext&gt;=rk) <span class="built_in">Del</span>(a[x].son[<span class="number">0</span>],rk);</span><br><span class="line">	<span class="keyword">else</span> <span class="built_in">Del</span>(a[x].son[<span class="number">1</span>],rk-a[a[x].son[<span class="number">0</span>]].fac-a[x].ext);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">il <span class="type">void</span> <span class="title">del</span><span class="params">(ll val)</span></span>&#123;</span><br><span class="line">	<span class="built_in">Del</span>(root,<span class="built_in">get_rank</span>(val));</span><br><span class="line">	<span class="keyword">if</span>((<span class="type">double</span>)a[root].siz*alpha&gt;(<span class="type">double</span>)a[root].fac) <span class="built_in">rebuild</span>(root);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">il <span class="type">void</span> <span class="title">check</span><span class="params">(ll x,ll val)</span></span>&#123;</span><br><span class="line">	ll s=val&lt;=a[x].val?<span class="number">0</span>:<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span>(a[x].son[s])&#123;</span><br><span class="line">		<span class="keyword">if</span>(!<span class="built_in">balance</span>(a[x].son[s]))&#123;</span><br><span class="line">			<span class="built_in">rebuild</span>(a[x].son[s]);</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		x=a[x].son[s];</span><br><span class="line">		s=val&lt;=a[x].val?<span class="number">0</span>:<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	n=<span class="built_in">read</span>();</span><br><span class="line">	<span class="built_in">init</span>();</span><br><span class="line">	<span class="keyword">while</span>(n--)&#123;</span><br><span class="line">		ll op=<span class="built_in">read</span>(),x=<span class="built_in">read</span>();</span><br><span class="line">		<span class="keyword">switch</span>(op)&#123;</span><br><span class="line">			<span class="keyword">case</span> <span class="number">1</span>:st=root,<span class="built_in">insert</span>(root,x),<span class="built_in">check</span>(st,x);<span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">case</span> <span class="number">2</span>:<span class="built_in">del</span>(x);<span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">case</span> <span class="number">3</span>:<span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,<span class="built_in">get_rank</span>(x));<span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">case</span> <span class="number">4</span>:<span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,<span class="built_in">get_val</span>(x));<span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">case</span> <span class="number">5</span>:<span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,<span class="built_in">get_val</span>(<span class="built_in">get_rank</span>(x)<span class="number">-1</span>));<span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">case</span> <span class="number">6</span>:<span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,<span class="built_in">get_val</span>(<span class="built_in">get_rank</span>(x<span class="number">+1</span>)));<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-Treap"><a href="#2-Treap" class="headerlink" title="2.Treap"></a>2.Treap</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ma 1145141</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> il inline</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function">ll <span class="title">read</span><span class="params">()</span></span>&#123;</span><br><span class="line">	ll x=<span class="number">0</span>,f=<span class="number">1</span>;</span><br><span class="line">	<span class="type">char</span> ch=<span class="built_in">getchar</span>();</span><br><span class="line">	<span class="keyword">while</span>(<span class="string">&#x27;0&#x27;</span>&gt;ch||ch&gt;<span class="string">&#x27;9&#x27;</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(ch==<span class="string">&#x27;-&#x27;</span>) f=<span class="number">-1</span>;</span><br><span class="line">		ch=<span class="built_in">getchar</span>();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(<span class="string">&#x27;0&#x27;</span>&lt;=ch&amp;&amp;ch&lt;=<span class="string">&#x27;9&#x27;</span>)&#123;</span><br><span class="line">		x=x*<span class="number">10</span>+ch-<span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">		ch=<span class="built_in">getchar</span>();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> x*f;</span><br><span class="line">&#125;</span><br><span class="line">ll n;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">treap</span>&#123;</span><br><span class="line">	ll l,r;</span><br><span class="line">	ll val,dat;</span><br><span class="line">	ll cnt,siz;</span><br><span class="line">&#125;a[ma];</span><br><span class="line">ll tot,root;</span><br><span class="line"><span class="comment">//----------------------------------</span></span><br><span class="line"><span class="type">const</span> ll inf=<span class="number">1e9</span><span class="number">+10</span>;</span><br><span class="line"><span class="function">il ll <span class="title">news</span><span class="params">(ll val)</span></span>&#123;</span><br><span class="line">	a[++tot].val=val;</span><br><span class="line">	a[tot].dat=<span class="built_in">random</span>();</span><br><span class="line">	a[tot].cnt=a[tot].siz=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">return</span> tot;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">il <span class="type">void</span> <span class="title">pushup</span><span class="params">(ll p)</span></span>&#123;</span><br><span class="line">	a[p].siz=a[a[p].l].siz+a[a[p].r].siz+a[p].cnt;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">il <span class="type">void</span> <span class="title">build</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">news</span>(-inf),<span class="built_in">news</span>(inf);</span><br><span class="line">	root=<span class="number">1</span>,a[<span class="number">1</span>].r=<span class="number">2</span>;</span><br><span class="line">	<span class="built_in">pushup</span>(root);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">il ll <span class="title">get_rank</span><span class="params">(ll p,ll val)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(!p) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">if</span>(val==a[p].val) <span class="keyword">return</span> a[a[p].l].siz<span class="number">+1</span>;</span><br><span class="line">	<span class="keyword">if</span>(val&lt;a[p].val) <span class="keyword">return</span> <span class="built_in">get_rank</span>(a[p].l,val);</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">get_rank</span>(a[p].r,val)+a[a[p].l].siz+a[p].cnt;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">il ll <span class="title">get_val</span><span class="params">(ll p,ll rk)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(p==<span class="number">0</span>) <span class="keyword">return</span> inf;</span><br><span class="line">	<span class="keyword">if</span>(a[a[p].l].siz&gt;=rk) <span class="keyword">return</span> <span class="built_in">get_val</span>(a[p].l,rk);</span><br><span class="line">	<span class="keyword">if</span>(a[a[p].l].siz+a[p].cnt&gt;=rk) <span class="keyword">return</span> a[p].val;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">get_val</span>(a[p].r,rk-a[a[p].l].siz-a[p].cnt);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">il <span class="type">void</span> <span class="title">l_rot</span><span class="params">(ll &amp;p)</span></span>&#123;</span><br><span class="line">	ll q=a[p].r;</span><br><span class="line">	a[p].r=a[q].l,a[q].l=p,p=q;</span><br><span class="line">	<span class="built_in">pushup</span>(a[p].l),<span class="built_in">pushup</span>(p);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">il <span class="type">void</span> <span class="title">r_rot</span><span class="params">(ll &amp;p)</span></span>&#123;</span><br><span class="line">	ll q=a[p].l;</span><br><span class="line">	a[p].l=a[q].r,a[q].r=p,p=q;</span><br><span class="line">	<span class="built_in">pushup</span>(a[p].r),<span class="built_in">pushup</span>(p);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">il <span class="type">void</span> <span class="title">insert</span><span class="params">(ll &amp;p,ll val)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(!p)&#123;</span><br><span class="line">		p=<span class="built_in">news</span>(val);</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(val==a[p].val)&#123;</span><br><span class="line">		a[p].cnt++,<span class="built_in">pushup</span>(p);</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(val&lt;a[p].val)&#123;</span><br><span class="line">		<span class="built_in">insert</span>(a[p].l,val);</span><br><span class="line">		<span class="keyword">if</span>(a[p].dat&lt;a[a[p].l].dat) <span class="built_in">r_rot</span>(p);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="built_in">insert</span>(a[p].r,val);</span><br><span class="line">		<span class="keyword">if</span>(a[p].dat&lt;a[a[p].r].dat) <span class="built_in">l_rot</span>(p);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">pushup</span>(p);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">il ll <span class="title">get_pre</span><span class="params">(ll val)</span></span>&#123;</span><br><span class="line">	ll ans=<span class="number">1</span>;</span><br><span class="line">	ll p=root;</span><br><span class="line">	<span class="keyword">while</span>(p)&#123;</span><br><span class="line">		<span class="keyword">if</span>(val==a[p].val)&#123;</span><br><span class="line">			<span class="keyword">if</span>(a[p].l&gt;<span class="number">0</span>)&#123;</span><br><span class="line">				p=a[p].l;</span><br><span class="line">				<span class="keyword">while</span>(a[p].r&gt;<span class="number">0</span>) p=a[p].r;</span><br><span class="line">				ans=p;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(a[p].val&lt;val&amp;&amp;a[p].val&gt;a[ans].val) ans=p;</span><br><span class="line">		p=val&lt;a[p].val?a[p].l:a[p].r;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> a[ans].val;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">il ll <span class="title">get_nxt</span><span class="params">(ll val)</span></span>&#123;</span><br><span class="line">	ll ans=<span class="number">2</span>;</span><br><span class="line">	ll p=root;</span><br><span class="line">	<span class="keyword">while</span>(p)&#123;</span><br><span class="line">		<span class="keyword">if</span>(val==a[p].val)&#123;</span><br><span class="line">			<span class="keyword">if</span>(a[p].r&gt;<span class="number">0</span>)&#123;</span><br><span class="line">				p=a[p].r;</span><br><span class="line">				<span class="keyword">while</span>(a[p].l&gt;<span class="number">0</span>) p=a[p].l;</span><br><span class="line">				ans=p;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(a[p].val&gt;val&amp;&amp;a[p].val&lt;a[ans].val) ans=p;</span><br><span class="line">		p=val&lt;a[p].val?a[p].l:a[p].r;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> a[ans].val;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">del</span><span class="params">(ll &amp;p,ll val)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(p==<span class="number">0</span>) <span class="keyword">return</span>;</span><br><span class="line">	<span class="keyword">if</span>(val==a[p].val)&#123;</span><br><span class="line">		<span class="keyword">if</span>(a[p].cnt&gt;<span class="number">1</span>)&#123;</span><br><span class="line">			a[p].cnt--;</span><br><span class="line">			<span class="built_in">pushup</span>(p);</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(a[p].l||a[p].r)&#123;</span><br><span class="line">			<span class="keyword">if</span>(!a[p].r||a[a[p].l].dat&gt;a[a[p].r].dat)&#123;</span><br><span class="line">				<span class="built_in">r_rot</span>(p);</span><br><span class="line">				<span class="built_in">del</span>(a[p].r,val);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span>&#123;</span><br><span class="line">				<span class="built_in">l_rot</span>(p);</span><br><span class="line">				<span class="built_in">del</span>(a[p].l,val);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="built_in">pushup</span>(p);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> p=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	val&lt;a[p].val?<span class="built_in">del</span>(a[p].l,val):<span class="built_in">del</span>(a[p].r,val);</span><br><span class="line">	<span class="built_in">pushup</span>(p);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//----------------------------------------------------</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">srand</span>(<span class="built_in">time</span>(<span class="literal">NULL</span>));</span><br><span class="line">	n=<span class="built_in">read</span>();</span><br><span class="line">	<span class="built_in">build</span>();</span><br><span class="line">	<span class="keyword">while</span>(n--)&#123;</span><br><span class="line">		ll op=<span class="built_in">read</span>(),x=<span class="built_in">read</span>();</span><br><span class="line">		<span class="keyword">switch</span>(op)&#123;</span><br><span class="line">			<span class="keyword">case</span> <span class="number">1</span>:<span class="built_in">insert</span>(root,x);<span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">case</span> <span class="number">2</span>:<span class="built_in">del</span>(root,x);<span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">case</span> <span class="number">3</span>:<span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,<span class="built_in">get_rank</span>(root,x)<span class="number">-1</span>);<span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">case</span> <span class="number">4</span>:<span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,<span class="built_in">get_val</span>(root,x<span class="number">+1</span>));<span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">case</span> <span class="number">5</span>:<span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,<span class="built_in">get_pre</span>(x));<span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">case</span> <span class="number">6</span>:<span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,<span class="built_in">get_nxt</span>(x));<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-Splay"><a href="#3-Splay" class="headerlink" title="3.Splay"></a>3.Splay</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ma 1145141</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> il inline</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> ll inf=<span class="number">1e9</span>;</span><br><span class="line"><span class="function">ll <span class="title">read</span><span class="params">()</span></span>&#123;</span><br><span class="line">	ll x=<span class="number">0</span>,f=<span class="number">1</span>;</span><br><span class="line">	<span class="type">char</span> ch=<span class="built_in">getchar</span>();</span><br><span class="line">	<span class="keyword">while</span>(<span class="string">&#x27;0&#x27;</span>&gt;ch||ch&gt;<span class="string">&#x27;9&#x27;</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(ch==<span class="string">&#x27;-&#x27;</span>) f=<span class="number">-1</span>;</span><br><span class="line">		ch=<span class="built_in">getchar</span>();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(<span class="string">&#x27;0&#x27;</span>&lt;=ch&amp;&amp;ch&lt;=<span class="string">&#x27;9&#x27;</span>)&#123;</span><br><span class="line">		x=x*<span class="number">10</span>+ch-<span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">		ch=<span class="built_in">getchar</span>();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> x*f;</span><br><span class="line">&#125;</span><br><span class="line">ll n;</span><br><span class="line"><span class="comment">//------------------------------</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">splay</span>&#123;</span><br><span class="line">	ll son[<span class="number">2</span>];</span><br><span class="line">	ll cnt;</span><br><span class="line">	ll val;</span><br><span class="line">	ll siz;</span><br><span class="line">	ll fa;</span><br><span class="line">&#125;t[ma];</span><br><span class="line">ll root,tot;</span><br><span class="line"><span class="function">il <span class="type">void</span> <span class="title">pushup</span><span class="params">(ll p)</span></span>&#123;</span><br><span class="line">	t[p].siz=t[t[p].son[<span class="number">0</span>]].siz+t[t[p].son[<span class="number">1</span>]].siz+t[p].cnt;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">il <span class="type">void</span> <span class="title">rotate</span><span class="params">(ll x)</span></span>&#123;</span><br><span class="line">	ll y=t[x].fa;</span><br><span class="line">	ll z=t[y].fa;</span><br><span class="line">	ll k=(t[y].son[<span class="number">1</span>]==x);</span><br><span class="line">	t[z].son[t[z].son[<span class="number">1</span>]==y]=x;</span><br><span class="line">	t[x].fa=z;</span><br><span class="line">	t[y].son[k]=t[x].son[k^<span class="number">1</span>];</span><br><span class="line">	t[t[x].son[k^<span class="number">1</span>]].fa=y;</span><br><span class="line">	t[x].son[k^<span class="number">1</span>]=y;</span><br><span class="line">	t[y].fa=x;</span><br><span class="line">	<span class="built_in">pushup</span>(y),<span class="built_in">pushup</span>(x);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">il <span class="type">void</span> <span class="title">Splay</span><span class="params">(ll x,ll goal)</span></span>&#123;</span><br><span class="line">	<span class="keyword">while</span>(t[x].fa!=goal)&#123;</span><br><span class="line">		ll y=t[x].fa,z=t[y].fa;</span><br><span class="line">		<span class="keyword">if</span>(z!=goal) (t[y].son[<span class="number">0</span>]==x)^(t[z].son[<span class="number">0</span>]==y)?<span class="built_in">rotate</span>(x):<span class="built_in">rotate</span>(y);</span><br><span class="line">		<span class="built_in">rotate</span>(x);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(!goal) root=x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">il <span class="type">void</span> <span class="title">get_rk</span><span class="params">(ll val)</span></span>&#123;</span><br><span class="line">	ll p=root;</span><br><span class="line">	<span class="keyword">if</span>(!p) <span class="keyword">return</span>;</span><br><span class="line">	<span class="keyword">while</span>(t[p].son[val&gt;t[p].val]&amp;&amp;val!=t[p].val) p=t[p].son[val&gt;t[p].val];</span><br><span class="line">	<span class="built_in">Splay</span>(p,<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">il <span class="type">void</span> <span class="title">insert</span><span class="params">(ll val)</span></span>&#123;</span><br><span class="line">	ll p=root,fa=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(p&amp;&amp;t[p].val!=val)&#123;</span><br><span class="line">		fa=p;</span><br><span class="line">		p=t[p].son[val&gt;t[p].val];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(p)&#123;</span><br><span class="line">		t[p].cnt++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">		p=++tot;</span><br><span class="line">		<span class="keyword">if</span>(fa) t[fa].son[val&gt;t[fa].val]=p;</span><br><span class="line">		t[p].son[<span class="number">1</span>]=t[p].son[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">		t[p].siz=t[p].cnt=<span class="number">1</span>;</span><br><span class="line">		t[p].fa=fa,t[p].val=val;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">Splay</span>(p,<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">il ll <span class="title">get_nxt</span><span class="params">(ll val,ll k)</span></span>&#123;<span class="comment">//k=0---&gt;before k=1---&gt;next</span></span><br><span class="line">	<span class="built_in">get_rk</span>(val);</span><br><span class="line">	ll p=root;</span><br><span class="line">	<span class="keyword">if</span>(t[p].val&gt;val&amp;&amp;k) <span class="keyword">return</span> p;</span><br><span class="line">	<span class="keyword">if</span>(t[p].val&lt;val&amp;&amp;!k) <span class="keyword">return</span> p;</span><br><span class="line">	p=t[p].son[k];</span><br><span class="line">	<span class="keyword">while</span>(t[p].son[k^<span class="number">1</span>]) p=t[p].son[k^<span class="number">1</span>];</span><br><span class="line">	<span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">il <span class="type">void</span> <span class="title">del</span><span class="params">(ll val)</span></span>&#123;</span><br><span class="line">	ll pre=<span class="built_in">get_nxt</span>(val,<span class="number">0</span>);</span><br><span class="line">	ll nxt=<span class="built_in">get_nxt</span>(val,<span class="number">1</span>);</span><br><span class="line">	<span class="built_in">Splay</span>(pre,<span class="number">0</span>),<span class="built_in">Splay</span>(nxt,pre);</span><br><span class="line">	ll p=t[nxt].son[<span class="number">0</span>];</span><br><span class="line">	<span class="keyword">if</span>(t[p].cnt&gt;<span class="number">1</span>)&#123;</span><br><span class="line">		t[p].cnt--;</span><br><span class="line">		<span class="built_in">Splay</span>(p,<span class="number">0</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> t[nxt].son[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">il ll <span class="title">get_val</span><span class="params">(ll rk)</span></span>&#123;</span><br><span class="line">	ll p=root;</span><br><span class="line">	<span class="keyword">if</span>(t[p].siz&lt;rk) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(p)&#123;</span><br><span class="line">		ll y=t[p].son[<span class="number">0</span>];</span><br><span class="line">		<span class="keyword">if</span>(rk&gt;t[y].siz+t[p].cnt)&#123;</span><br><span class="line">			rk-=t[y].siz+t[p].cnt;</span><br><span class="line">			p=t[p].son[<span class="number">1</span>];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="keyword">if</span>(t[y].siz&gt;=rk) p=y;</span><br><span class="line">			<span class="keyword">else</span>&#123;</span><br><span class="line">				<span class="keyword">return</span> t[p].val;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//----------------------------------</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	n=<span class="built_in">read</span>();</span><br><span class="line">	<span class="built_in">insert</span>(inf),<span class="built_in">insert</span>(-inf);</span><br><span class="line">	<span class="keyword">while</span>(n--)&#123;</span><br><span class="line">		ll op=<span class="built_in">read</span>(),x=<span class="built_in">read</span>();</span><br><span class="line">		<span class="keyword">switch</span>(op)&#123;</span><br><span class="line">			<span class="keyword">case</span> <span class="number">1</span>:<span class="built_in">insert</span>(x);<span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">case</span> <span class="number">2</span>:<span class="built_in">del</span>(x);<span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">case</span> <span class="number">3</span>:<span class="built_in">get_rk</span>(x),<span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,t[t[root].son[<span class="number">0</span>]].siz);<span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">case</span> <span class="number">4</span>:<span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,<span class="built_in">get_val</span>(x<span class="number">+1</span>));<span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">case</span> <span class="number">5</span>:<span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,t[<span class="built_in">get_nxt</span>(x,<span class="number">0</span>)].val);<span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">case</span> <span class="number">6</span>:<span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,t[<span class="built_in">get_nxt</span>(x,<span class="number">1</span>)].val);<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/en/tags/%E6%A8%A1%E6%9D%BF/" rel="tag" title="模板">模板</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+  <nav id="article-nav" aria-label="Article navigation" data-aos="fade-up">
+    
+      
+      <div class="article-nav-link-wrap left">
+        
+          
+          
+            <img data-src="https://cdn.luogu.com.cn/upload/image_hosting/6kekcsgu.png" data-sizes="auto" alt="LCT模板" class="lazyload">
+          
+        
+        <a href="/en/2025/10/28/LCT%E6%A8%A1%E6%9D%BF/" aria-label="Prev: LCT模板" title="Prev: LCT模板"></a>
+        <div class="article-nav-caption">Prev</div>
+        <h3 class="article-nav-title">
+          
+            LCT模板
+          
+        </h3>
+      </div>
+    
+    
+    
+    <div class="article-nav-link-wrap right">
+      
+        
+        
+          <img data-src="https://cdn.luogu.com.cn/upload/image_hosting/d4pdf59a.png" data-sizes="auto" alt="树剖求LCA" class="lazyload">
+        
+      
+      <a href="/en/2025/10/28/%E6%A0%91%E5%89%96%E6%B1%82LCA/" aria-label="Next: 树剖求LCA"  title="Next: 树剖求LCA"></a>
+      <div class="article-nav-caption">Next</div>
+      <h3 class="article-nav-title">
+        
+          树剖求LCA
+        
+      </h3>
+    </div>
+    
+  </nav>
+
+
+</article>
+
+
+
+
+
+
+
+
+
+
+</section>
+        </div>
+        <footer id="footer" aria-label="Site footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info">
+    
+    <div>
+      <span class="icon-copyright"></span>
+      
+      
+      
+        2025
+      
+      <span class="footer-info-sep rotate"></span>
+      mukari
+    </div>
+    
+      <div>
+        Powered by&nbsp;<a href="https://hexo.io/" rel="noopener nofollow noreferrer" target="_blank">Hexo</a>&nbsp;
+        Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" rel="noopener nofollow noreferrer" target="_blank">Reimu</a>
+      </div>
+    
+    
+      <div>
+        <span class="icon-brush"></span>
+        6.7k
+        &nbsp;|&nbsp;
+        <span class="icon-coffee"></span>
+        00:46
+      </div>
+    
+    
+    
+    
+    
+  </div>
+</footer>
+
+        
+          <div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div>
+        
+        <div id="mask" class="hide"></div>
+      </div>
+      <nav id="mobile-nav" aria-label="Mobile navigation">
+  <div class="sidebar-wrap">
+    
+      
+        <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+  
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-number">2.</span> <span class="toc-text">代码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%9B%BF%E7%BD%AA%E7%BE%8A%E6%A0%91"><span class="toc-number">2.1.</span> <span class="toc-text">1.替罪羊树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Treap"><span class="toc-number">2.2.</span> <span class="toc-text">2.Treap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Splay"><span class="toc-number">2.3.</span> <span class="toc-text">3.Splay</span></a></li></ol></li></ol>
+  
+</div>
+</div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.webp" data-sizes="auto" alt="mukari" class="lazyload">
+  <div class="sidebar-author-name">mukari</div>
+  <div class="sidebar-description"></div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Post</div>
+    <div class="sidebar-state-number">11</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Category</div>
+    <div class="sidebar-state-number">1</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tag</div>
+    <div class="sidebar-state-number">2</div>
+  </div>
+</div>
+<div class="sidebar-social">
+  
+</div>
+<div class="sidebar-menu">
+  
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/" aria-label="Home"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">Home</div>
+      </div>
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/archives" aria-label="Archives"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">Archives</div>
+      </div>
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/about" aria-label="About"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">About</div>
+      </div>
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/friend" aria-label="Friend"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">Friend</div>
+      </div>
+    
+  
+</div>
+</div>
+      
+    
+  </div>
+  
+    
+      <div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div>
+    
+  
+</nav>
+
+    </div>
+    
+    
+    
+    
+<script src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js" integrity="sha384-3gT&#x2F;vsepWkfz&#x2F;ff7PpWNUeMzeWoH3cDhm&#x2F;A8jM7ouoAK0&#x2F;fP&#x2F;9bcHHR5kHq2nf+e" crossorigin="anonymous"></script>
+
+
+<script src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha384-J08i8An&#x2F;QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script>
+
+
+
+  
+<script src="https://npm.webcache.cn/material-theme@1.0.0/dist/material-theme.umd.js" integrity="sha384-vLev0II0HKFaxkcm+&#x2F;7kX5IGwVFBASkGchU311wmU&#x2F;veIj2bB0UcBkQbW6yw2asK" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+  
+<script src="/js/aos.js"></script>
+
+  <script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', aosInit);
+    } else {
+      aosInit();
+    }
+  </script>
+
+
+
+<script src="/js/pjax_script.js" data-pjax></script>
+
+
+
+
+
+
+
+  
+<script src="https://npm.webcache.cn/mouse-firework@0.1.1/dist/index.umd.js" integrity="sha384-8LyaidD9GPxQQgLJO&#x2F;WRw&#x2F;O2h3BoNq&#x2F;ApI&#x2F;ecpvM6RsrCz2qP2ppBXUKihP4V&#x2F;2d" crossorigin="anonymous"></script>
+
+  <script>
+    window.firework && window.firework(JSON.parse('{"excludeElements":["a","button"],"particles":[{"shape":"circle","move":["emit"],"easing":"easeOutExpo","colors":["var(--red-1)","var(--red-2)","var(--red-3)","var(--red-4)"],"number":20,"duration":[1200,1800],"shapeOptions":{"radius":[16,32],"alpha":[0.3,0.5]}},{"shape":"circle","move":["diffuse"],"easing":"easeOutExpo","colors":["var(--red-0)"],"number":1,"duration":[1200,1800],"shapeOptions":{"radius":20,"alpha":[0.2,0.5],"lineWidth":6}}]}'))
+  </script>
+
+
+
+
+
+
+
+  
+<script src="https://npm.webcache.cn/live2d-widgets@0.9.0/autoload.js" integrity="sha384-poTN7wN&#x2F;SqNhQqo3jdFeX20ikddWeFGkUkDEzsKjgH&#x2F;ez8aQLn81oI0Cw6q5xNyB" crossorigin="anonymous"></script>
+
+
+
+
+
+<div id="lazy-script">
+  <div>
+    
+      
+      
+      <script data-pjax>
+        window.REIMU_POST = {
+          author: "mukari",
+          title: "平衡树模板",
+          url: "https://yakumomukari.github.io/2025/10/28/%E5%B9%B3%E8%A1%A1%E6%A0%91%E6%A8%A1%E6%9D%BF/",
+          excerpt: "",
+          description: "",
+          stripContent: "题目传送门 前言因为平衡树有太多种方法实现，所以在这里记录一下各种实现方法。 代码1.替罪羊树12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210310",
+          date: "Tue Oct 28 2025 12:47:58 GMT+0800",
+          updated: "Tue Oct 28 2025 14:04:35 GMT+0800",
+          cover: "/images/banner.webp",
+        };
+      </script>
+       
+    
+    
+      
+        
+<script src="/js/insert_highlight.js" data-pjax></script>
+
+        
+      
+    
+    
+      <script type="module" data-pjax>
+        const PhotoSwipeLightbox = (await safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js", "sha384-DiL6M/gG+wmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF/N6lrZi/")).default;
+        const initPswp = (gallery, children) => {
+          if (_$$(`${gallery} ${children}`).length > 0) {
+            new PhotoSwipeLightbox({
+              gallery,
+              children,
+              pswpModule: () => safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8+oTJ7m3DfYEWX1fu1scuS4+s")
+            }).init();
+          }
+        }
+        const pswp = () => {
+          initPswp('.article-entry', 'a.article-gallery-item');
+          initPswp('.article-gallery', 'a.article-gallery-item');
+          window.lightboxStatus = 'done';
+          window.removeEventListener('lightbox:ready', pswp);
+        }
+        if(window.lightboxStatus === 'ready') {
+          pswp()
+        } else {
+          window.addEventListener('lightbox:ready', pswp);
+        }
+      </script>
+      
+        
+
+
+
+
+
+
+
+
+      
+    
+  </div>
+</div>
+
+
+  <script>
+    console.log(String.raw`%c 
+ ______     ______     __     __    __     __  __    
+/\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+\ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+ \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+  \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                  
+`,'color: #ff5252;')
+    console.log('%c Theme.Reimu v' + '1.10.2' + ' %c https://github.com/D-Sketon/hexo-theme-reimu ', 'color: white; background: #ff5252; padding:5px 0;', 'padding:4px;border:1px solid #ff5252;')
+  </script>
+  
+
+<script data-pjax>
+  var updateTime = _$('#post-update-time')?.innerHTML;
+
+  if (updateTime) {
+    const update = new Date(updateTime);
+    const now = new Date();
+    const diff = now - update;
+    const days = diff / 86400000;
+    const { daysAgo, message: template } = window.REIMU_CONFIG.outdate;
+    if (days >= daysAgo) {
+      let message = `This article was last updated on ${updateTime}. Please note that the content may no longer be applicable.`;
+      if (typeof template === 'string') {
+        message = template.replace(/{time}/, updateTime);
+      } else if (typeof template === 'object') {
+        const lang = document.documentElement.lang;
+        const messageKey = Object.keys(template).find(key => key.toLowerCase() === lang.toLowerCase());
+        if (messageKey && template[messageKey]) {
+          message = template[messageKey].replace(/{time}/, updateTime);
+        }
+      }
+      const blockquote = _$('#outdate-blockquote');
+      if (blockquote) {
+        blockquote.querySelectorAll('p')[1].innerText = message;
+        blockquote.style.display = 'flow-root';
+      }
+    }
+  }
+</script>
+
+
+
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      for (let registration of registrations) {
+        registration.unregister();
+      }
+    });
+  }
+</script>
+
+
+
+  
+    
+<script src="https://npm.webcache.cn/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha384-Wuix6BuhrWbjDBs24bXrjf4ZQ5aFeFWBuKkFekO2t8xFU0iNaLQfp2K6&#x2F;1Nxveei" crossorigin="anonymous" defer data-pjax></script>
+
+    <script data-pjax>
+      window.MathJax = {"tex":{"tags":"ams","useLabelIds":true,"inlineMath":[["$","$"],["\\\\(","\\\\)"]],"displayMath":[["$$","$$"],["\\\\[","\\\\]"]],"processEscapes":true,"processEnvironments":true,"autoload":{"color":[],"colorv2":["color"]},"packages":{"[+]":["noerrors"]}},"options":{"skipHtmlTags":["script","noscript","style","textarea","pre","code"],"ignoreHtmlClass":"tex2jax_ignore","processHtmlClass":"tex2jax_process"},"loader":{"load":["input/asciimath","[tex]/noerrors"]}};
+    </script>
+  
+
+
+
+
+
+
+
+    
+  </body>
+  </html>
+

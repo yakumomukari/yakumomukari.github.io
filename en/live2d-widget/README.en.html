@@ -1,0 +1,926 @@
+
+  <!DOCTYPE html>
+  <html lang="en"  
+    
+      data-theme-mode="auto"
+    
+  >
+  <head>
+  
+  <meta charset="utf-8">
+  
+
+  
+
+  
+
+  <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_4k4bc36ef96';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (∠・ω< )⌒★","en":"Copy successfully (∠・ω< )⌒★"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ","en":"Copy failed (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = 'All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!';window.REIMU_CONFIG.outdate = {"enable":true,"daysAgo":180,"message":{"en":"This article was last updated on {time}. Please note that the content may no longer be applicable.","zh-CN":"本文最后更新于 {time}，请注意文中内容可能已不适用。","zh-TW":"本文最後更新於 {time}，請注意文中內容可能已不適用。","ja":"この記事は最終更新日：{time}。記載内容が現在有効でない可能性がありますのでご注意ください。","pt-BR":"Este artigo foi atualizado pela última vez em {time}. Observe que o conteúdo pode não ser mais aplicável."}};window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://yakumomukari.github.io';window.REIMU_CONFIG.i18n_languages = ["en"];</script>
+  
+  <title>
+    
+    mukari&#39;s wonderland
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7CNoto%20Serif%20SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7CNoto%20Serif%20SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media&#x3D;&#39;all&#39;">
+  
+  
+    <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_4k4bc36ef96.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  
+  
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+  
+  
+    <meta name="description" content="Live2D Widget 中文 Features Add Live2D widget to web page Lightweight, with no runtime dependencies other than Live2D Cubism Core Core code is written in TypeScript, making it easy to integrate   Note:">
+<meta property="og:type" content="website">
+<meta property="og:title" content="mukari&#39;s wonderland">
+<meta property="og:url" content="https://yakumomukari.github.io/en/live2d-widget/README.en.html">
+<meta property="og:site_name" content="mukari&#39;s wonderland">
+<meta property="og:description" content="Live2D Widget 中文 Features Add Live2D widget to web page Lightweight, with no runtime dependencies other than Live2D Cubism Core Core code is written in TypeScript, making it easy to integrate   Note:">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://yakumomukari.github.io/images/banner.webp">
+<meta property="article:published_time" content="2025-10-26T14:08:37.983Z">
+<meta property="article:modified_time" content="2025-10-26T14:08:37.983Z">
+<meta property="article:author" content="mukari">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yakumomukari.github.io/images/banner.webp">
+  
+  
+    <link rel="alternate" href="/atom.xml" title="mukari's wonderland" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="preload" as="style" onload="this.onload&#x3D;null;this.rel&#x3D;&#39;stylesheet&#39;" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL&#x2F;toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx&#x2F;1oA&#x2F;0l8ysE" crossorigin="anonymous">
+  
+    
+      
+        
+<link rel="stylesheet" href="https://npm.webcache.cn/katex@0.16.24/dist/katex.min.css" integrity="sha384-tTgKLjMYmJr94v8qu2PE5MUGSMbyN2xiH266JUB3gpm8vnnJywd1dWSOEfrFz+YI" crossorigin="anonymous">
+
+      
+    
+  
+  
+  
+  
+    
+<script src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js" integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script>
+
+  
+  
+    
+<link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.2/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
+
+  
+  
+  
+<meta name="generator" content="Hexo 8.0.0"></head>
+
+  <body>
+    
+    
+  <div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate">
+        
+          <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+           M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg>
+        
+      </div>
+      
+      
+        
+      
+      <div class="loading-word">Loading...</div>
+    </div>
+  </div>
+  </div>
+  <script>
+    var time = null;
+    var loaderEl = document.getElementById('loader');
+    var startLoading = () => {
+      time = Date.now();
+      loaderEl.classList.remove("loading");
+    }
+    var hideLoader = () => {
+      document.body.style.overflow = 'auto';
+      loader.classList.add('loading');
+    };
+
+    var endLoading = () => {
+      if (!time) {
+        hideLoader();
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          hideLoader();
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    loaderEl.addEventListener('click', endLoading);
+  </script>
+
+<div id="copy-tooltip"></div>
+<div id="heatmap-tooltip"></div>
+
+
+    <div id="container">
+      <div id="wrap">
+        <div id="header-nav">
+  <nav id="main-nav" aria-label="Primary navigation">
+    
+      
+        <a class="main-nav-link-wrap" href="/en/">
+          <div class="main-nav-icon icon rotate">
+             
+              &#xe62b;
+             
+          </div>
+          <span class="main-nav-link">Home</span>
+        </span>
+      
+        <a class="main-nav-link-wrap" href="/en/archives">
+          <div class="main-nav-icon icon rotate">
+             
+              &#xe62b;
+             
+          </div>
+          <span class="main-nav-link">Archives</span>
+        </span>
+      
+        <a class="main-nav-link-wrap" href="/en/about">
+          <div class="main-nav-icon icon rotate">
+             
+              &#xe62b;
+             
+          </div>
+          <span class="main-nav-link">About</span>
+        </span>
+      
+        <a class="main-nav-link-wrap" href="/en/friend">
+          <div class="main-nav-icon icon rotate">
+             
+              &#xe62b;
+             
+          </div>
+          <span class="main-nav-link">Friend</span>
+        </span>
+      
+    
+    <a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
+  </nav>
+  <nav id="sub-nav" aria-label="Secondary navigation">
+    
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed" aria-label="RSS Feed" target="_blank"></a>
+    
+    
+  </nav>
+  
+    
+    <nav id="i18n-nav" aria-label="Language selection">
+      <div class="custom-dropdown">
+        <div class="select-selected" id="select-selected" role="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Language menu">
+          <span id="nav-language-btn" class="nav-icon" style="padding: 0 20px 0 0"></span>
+          <span id="selected-lang">English</span>
+        </div>
+        <ul class="select-items" id="select-items" role="listbox" aria-label="Languages">
+          
+            <li data-value="zh-CN" role="option" aria-selected="false">简体中文</li>
+          
+            <li data-value="en" role="option" class="selected" aria-selected="true">English</li>
+          
+        </ul>
+      </div>
+      <script>
+        var selectSelected = document.getElementById("select-selected");
+        var selectedLang = document.getElementById("selected-lang");
+        var selectItems = document.getElementById("select-items");
+        var selectOptions = selectItems.querySelectorAll("li");
+
+        selectSelected.addEventListener("click", () => {
+          selectItems.classList.toggle("show");
+          var expanded = selectSelected.getAttribute("aria-expanded") === "true";
+          selectSelected.setAttribute("aria-expanded", (!expanded).toString());
+        });
+
+        selectOptions.forEach((item) => {
+          item.addEventListener("click", () => {
+            const langMap = {};
+            
+              langMap['zh-CN'] = '/live2d-widget/README.en';
+            
+              langMap['en'] = '/en/live2d-widget/README.en';
+            
+            selectedLang.textContent = item.textContent;
+            selectItems.classList.remove("show");
+            selectOptions.forEach((option) => {
+              option.classList.remove("selected");
+            });
+            item.classList.add("selected");
+            window.location = langMap[item.dataset.value];
+          });
+        });
+
+        document.addEventListener("click", (event) => {
+          if (!event.target.closest(".custom-dropdown")) {
+            selectItems.classList.remove("show");
+            selectSelected.setAttribute("aria-expanded", "false");
+          }
+        });
+      </script>
+    </nav>
+  
+  
+</div>
+<header id="header" aria-label="Site header">
+  
+    
+      <picture>
+        
+      </picture>
+      
+        <img crossorigin="anonymous" fetchpriority="high" src="/images/banner.webp" alt="">
+      
+    
+  
+  <div id="header-outer">
+    <div id="header-title">
+      
+        
+        
+          <span id="logo">
+            <h1 data-aos="slide-up">mukari&#39;s wonderland</h1>
+          </span>
+        
+      
+      
+        
+        <h2 id="subtitle-wrap" data-aos="slide-down">
+          
+        </h2>
+      
+    </div>
+  </div>
+</header>
+
+        <div id="content" aria-label="Page content"  class="sidebar-right" >
+          <aside id="sidebar" aria-label="Sidebar">
+  
+  <div class="sidebar-wrapper-container ">
+  
+    
+    
+  
+ 
+  <div class="sidebar-wrapper">
+    <div class="sidebar-wrap" data-aos="fade-up">
+      
+        <div class="sidebar-author">
+  <img data-src="/avatar/avatar.webp" data-sizes="auto" alt="mukari" class="lazyload">
+  <div class="sidebar-author-name">mukari</div>
+  <div class="sidebar-description"></div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Post</div>
+    <div class="sidebar-state-number">11</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Category</div>
+    <div class="sidebar-state-number">1</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tag</div>
+    <div class="sidebar-state-number">2</div>
+  </div>
+</div>
+<div class="sidebar-social">
+  
+</div>
+<div class="sidebar-menu">
+  
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/" aria-label="Home"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">Home</div>
+      </div>
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/archives" aria-label="Archives"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">Archives</div>
+      </div>
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/about" aria-label="About"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">About</div>
+      </div>
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/friend" aria-label="Friend"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">Friend</div>
+      </div>
+    
+  
+</div>
+
+      
+      
+    </div>
+  </div>
+  
+  <div class="sidebar-widget">
+  
+  </div>
+  
+  </div>
+  
+</aside>
+
+          <section id="main" aria-label="Main content"><article id="page-" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner" data-aos="fade-up">
+    <div class="article-meta">
+      <div class="article-date">
+  <span class="article-date-link icon-calendar" data-aos="zoom-in">
+    <time datetime="2025-10-26T14:08:37.983Z" itemprop="datePublished">2025-10-26</time>
+    <time style="display: none;" id="post-update-time">2025-10-26</time>
+  </span>
+  
+</div>
+
+      
+
+    </div>
+    
+    <div class="hr-line"></div>
+    
+
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <div class="warning custom-block" id="outdate-blockquote" style="display: none;">
+          <p class="custom-block-title">WARNING</p>
+          <p></p>
+        </div>
+      
+      
+        <h1 id="Live2D-Widget"><a href="#Live2D-Widget" class="headerlink" title="Live2D Widget"></a>Live2D Widget</h1><p><img src="https://forthebadge.com/images/badges/built-with-love.svg"><br><img src="https://forthebadge.com/images/badges/made-with-typescript.svg"><br><img src="https://forthebadge.com/images/badges/uses-css.svg"><br><img src="https://forthebadge.com/images/badges/contains-cat-gifs.svg"><br><img src="https://forthebadge.com/images/badges/powered-by-electricity.svg"><br><img src="https://forthebadge.com/images/badges/makes-people-smile.svg"></p>
+<p><a href="README.md">中文</a></p>
+<h2 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h2><ul>
+<li>Add Live2D widget to web page</li>
+<li>Lightweight, with no runtime dependencies other than Live2D Cubism Core</li>
+<li>Core code is written in TypeScript, making it easy to integrate</li>
+</ul>
+<p><img src="demo/screenshots/screenshot-2.png" width="280"><img src="demo/screenshots/screenshot-3.png" width="280"><img src="demo/screenshots/screenshot-1.png" width="270"></p>
+<p><em>Note: The character models above are for demonstration purposes only and are not included in this repository.</em></p>
+<p>You can also check out example web pages:</p>
+<ul>
+<li>Check the effect in the lower left corner of <a target="_blank" rel="noopener" href="https://zhangshuqiao.org/">Mimi’s Blog</a></li>
+<li><a target="_blank" rel="noopener" href="https://live2d-widget.pages.dev/demo/demo">demo&#x2F;demo.html</a> to demonstrate basic functionality</li>
+<li><a target="_blank" rel="noopener" href="https://live2d-widget.pages.dev/demo/login">demo&#x2F;login.html</a> to imitate the login interface of NPM</li>
+</ul>
+<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><p>If you are a beginner or only need the basic functionality, you can simply add the following line of code to the <code>head</code> or <code>body</code> of your HTML page to load the widget:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://fastly.jsdelivr.net/npm/live2d-widgets@1.0.0-rc.7/dist/autoload.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>The placement of the code depends on how your website is built. For example, if you are using <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>, you need to add the above code to the template file of your theme. The modification process is similar for pages generated using various template engines.<br>If your website uses PJAX, since the widget does not need to be refreshed on every page, make sure to place the script outside the PJAX refresh area.</p>
+<p><strong>However, we strongly recommend configuring the widget yourself to make it more suitable for your website!</strong><br>If you are interested in customizing the widget, please refer to the detailed instructions below.</p>
+<h2 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h2><p>You can refer to the source code of <code>dist/autoload.js</code> to see the available configuration options. <code>autoload.js</code> will automatically load two files: <code>waifu.css</code> and <code>waifu-tips.js</code>. <code>waifu-tips.js</code> creates the <code>initWidget</code> function, which is the main function for loading the widget. The <code>initWidget</code> function accepts an object-type parameter as the configuration for the widget. The following are the available options:</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Type</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>waifuPath</code></td>
+<td><code>string</code></td>
+<td><code>https://fastly.jsdelivr.net/npm/live2d-widgets@1/dist/waifu-tips.json</code></td>
+<td>Path to the widget resources, can be modified</td>
+</tr>
+<tr>
+<td><code>cdnPath</code></td>
+<td><code>string</code></td>
+<td><code>https://fastly.jsdelivr.net/gh/fghrsh/live2d_api/</code></td>
+<td>CDN path</td>
+</tr>
+<tr>
+<td><code>cubism2Path</code></td>
+<td><code>string</code></td>
+<td><code>https://fastly.jsdelivr.net/npm/live2d-widgets@1/dist/live2d.min.js</code></td>
+<td>Path to Cubism 2 Core</td>
+</tr>
+<tr>
+<td><code>cubism5Path</code></td>
+<td><code>string</code></td>
+<td><code>https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js</code></td>
+<td>Path to Cubism 5 Core</td>
+</tr>
+<tr>
+<td><code>modelId</code></td>
+<td><code>number</code></td>
+<td><code>0</code></td>
+<td>Default model id</td>
+</tr>
+<tr>
+<td><code>tools</code></td>
+<td><code>string[]</code></td>
+<td>see <code>autoload.js</code></td>
+<td>Buttons of the loaded tools</td>
+</tr>
+<tr>
+<td><code>drag</code></td>
+<td><code>boolean</code></td>
+<td><code>false</code></td>
+<td>Make the widget draggable</td>
+</tr>
+<tr>
+<td><code>logLevel</code></td>
+<td><code>string</code></td>
+<td><code>error</code></td>
+<td>Log level: <code>error</code>, <code>warn</code>, <code>info</code>, <code>trace</code></td>
+</tr>
+</tbody></table>
+<h2 id="Model-Repository"><a href="#Model-Repository" class="headerlink" title="Model Repository"></a>Model Repository</h2><p>This repository does not include any models. You need to configure a separate model repository and set it via the <code>cdnPath</code> option.<br>Older versions of the <code>initWidget</code> function supported the <code>apiPath</code> parameter, which required users to set up their own backend. You can refer to <a target="_blank" rel="noopener" href="https://github.com/fghrsh/live2d_api">live2d_api</a> for details. The backend interface would integrate model resources and dynamically generate JSON description files. Since version 1.0, these features have been implemented on the frontend, so a dedicated <code>apiPath</code> is no longer required. All model resources can be provided statically. As long as <code>model_list.json</code> and the corresponding <code>textures.cache</code> for each model exist, features such as outfit changing are supported.</p>
+<h2 id="Development"><a href="#Development" class="headerlink" title="Development"></a>Development</h2><p>If the options provided in the “Configuration” section above are not enough to meet your needs, you can make modifications yourself. The directory structure of this repository is as follows:</p>
+<ul>
+<li><code>src</code> directory contains the TypeScript code for each component, e.g. the button and dialog box.</li>
+<li><code>build</code> directory contains files generated from the source code in <code>src</code> (please do not modify them directly!)</li>
+<li><code>dist</code> directory contains the files that can be directly used on web pages after packaging, including:<ul>
+<li><code>autoload.js</code> is used to automatically load other resources such as style sheets.</li>
+<li><code>waifu-tips.js</code> is automatically generated by <code>build/waifu-tips.js</code> and it is not recommended to modify it directly.</li>
+<li><code>waifu.css</code> is the style sheet for the widget.</li>
+<li><code>waifu-tips.json</code> defines the triggering conditions (<code>selector</code>, CSS selector) and the displayed text when triggered (<code>text</code>).<br>By default, the CSS selector rules in <code>waifu-tips.json</code> are effective for the Hexo <a target="_blank" rel="noopener" href="https://github.com/next-theme/hexo-theme-next">NexT theme</a>, but you may need to modify or add new content to make it suitable for your own website.<br><strong>Warning: The content in <code>waifu-tips.json</code> may not be suitable for all age groups or appropriate to access during work. Please ensure their suitability when using them.</strong></li>
+</ul>
+</li>
+</ul>
+<p>To deploy the development testing environment of this project locally, you need to install Node.js and npm, then execute the following commands:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/stevenjoezhang/live2d-widget.git</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+
+<p>If you need to use Cubism 3 or newer models, please download and extract the Cubism SDK for Web separately into the <code>src</code> directory, for example, <code>src/CubismSdkForWeb-5-r.4</code>. Due to Live2D license agreements (including the Live2D Proprietary Software License Agreement and Live2D Open Software License Agreement), this project cannot include the source code of Cubism SDK for Web.<br>If you only need to use Cubism 2 models, you can skip this step. The code in this repository complies with the Redistributable Code terms of the Live2D license agreements.<br>Once completed, use the following command to compile and bundle the project.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run build</span><br></pre></td></tr></table></figure>
+
+<p>The TypeScript code in the <code>src</code> directory is compiled into the <code>build</code> directory, and the code in the <code>build</code> directory is further bundled into the <code>dist</code> directory.<br>To support both Cubism 2 and Cubism 3 (and newer) models while minimizing code size, Cubism Core and related code are loaded dynamically based on the detected model version.</p>
+<h2 id="Deploy"><a href="#Deploy" class="headerlink" title="Deploy"></a>Deploy</h2><p>After making modifications locally, you can deploy the modified project on a server or load it via a CDN. To make it easier to customize, you can fork this repository and push your modified content to your own repository using <code>git push</code>.</p>
+<h3 id="Using-jsDelivr-CDN"><a href="#Using-jsDelivr-CDN" class="headerlink" title="Using jsDelivr CDN"></a>Using jsDelivr CDN</h3><p>To load forked repository via jsDelivr, the usage method becomes:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://fastly.jsdelivr.net/gh/username/live2d-widget@latest/autoload.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>Replace <code>username</code> with your GitHub username. To ensure the content of the CDN is refreshed correctly, you need to create a new git tag and push it to the GitHub repository. Otherwise, <code>@latest</code> in the URL will still point to the previous version. Additionally, CDN itself has caching, so the changes may take some time to take effect.</p>
+<h3 id="Using-Cloudflare-Pages"><a href="#Using-Cloudflare-Pages" class="headerlink" title="Using Cloudflare Pages"></a>Using Cloudflare Pages</h3><p>You can also deploy using Cloudflare Pages. Create a new project in Cloudflare Pages and select your forked repository. Then, set the build command to <code>npm run build</code>. Once configured, Cloudflare Pages will automatically build and deploy your project.</p>
+<h3 id="Self-host"><a href="#Self-host" class="headerlink" title="Self-host"></a>Self-host</h3><p>Alternatively, you can directly host these files on your server instead of loading them via CDN.</p>
+<ul>
+<li>Clone the forked repository onto your server, or upload the local files to the website directory on the server using <code>ftp</code> or similar methods.</li>
+<li>If you are deploying a static blog using Hexo or similar tools, place the code of this project in the blog’s source file directory (e.g., the <code>source</code> directory). When redeploying the blog, the relevant files will be automatically uploaded to the corresponding paths. To prevent these files from being incorrectly modified by Hexo plugins, you may need to set <code>skip_render</code>.</li>
+</ul>
+<p>Afterwards, the entire project can be accessed through your domain name. You can try opening the <code>autoload.js</code> and <code>live2d.min.js</code> files in your browser and confirm that their content is complete and correct.<br>If everything is normal, you can proceed to modify the constant <code>live2d_path</code> in <code>autoload.js</code> to the URL of the <code>dist</code> directory. For example, if you can access <code>live2d.min.js</code> through the following URL:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://example.com/path/to/live2d-widget/dist/live2d.min.js</span><br></pre></td></tr></table></figure>
+
+<p>then modify the value of <code>live2d_path</code> to:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://example.com/path/to/live2d-widget/dist/</span><br></pre></td></tr></table></figure>
+
+<p>Make sure to include the trailing <code>/</code> in the path.<br>Once done, add the following code to the interface where you want to add the live2d-widget:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://example.com/path/to/live2d-widget/dist/autoload.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>This will load the widget.</p>
+<h2 id="Thanks"><a href="#Thanks" class="headerlink" title="Thanks"></a>Thanks</h2><a target="_blank" rel="noopener" href="https://www.browserstack.com/">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" height="80" srcset="https://d98b8t1nnulk5.cloudfront.net/production/images/layout/logo-header.png?1469004780">
+    <source media="(prefers-color-scheme: light)" height="80" srcset="https://live.browserstack.com/images/opensource/browserstack-logo.svg">
+    <img alt="BrowserStack Logo" height="80" src="https://live.browserstack.com/images/opensource/browserstack-logo.svg">
+  </picture>
+</a>
+
+<blockquote>
+<p>Thanks to <a target="_blank" rel="noopener" href="https://www.browserstack.com/">BrowserStack</a> for providing the infrastructure that allows us to test in real browsers!</p>
+</blockquote>
+<a target="_blank" rel="noopener" href="https://www.jsdelivr.com">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" height="80" srcset="https://raw.githubusercontent.com/jsdelivr/jsdelivr-media/master/white/svg/jsdelivr-logo-horizontal.svg">
+    <source media="(prefers-color-scheme: light)" height="80" srcset="https://raw.githubusercontent.com/jsdelivr/jsdelivr-media/master/default/svg/jsdelivr-logo-horizontal.svg">
+    <img alt="jsDelivr Logo" height="80" src="https://raw.githubusercontent.com/jsdelivr/jsdelivr-media/master/default/svg/jsdelivr-logo-horizontal.svg">
+  </picture>
+</a>
+
+<blockquote>
+<p>Thanks to jsDelivr for providing public CDN service.</p>
+</blockquote>
+<p>Thanks fghrsh for providing API service.</p>
+<p>Thanks to <a target="_blank" rel="noopener" href="https://hitokoto.cn/">Hitokoto</a> for providing the sentence API.</p>
+<p>When you click on the paper airplane button of the virtual assistant, a hidden surprise will appear. This feature is from <a target="_blank" rel="noopener" href="http://www.websiteasteroids.com/">WebsiteAsteroids</a>.</p>
+<h2 id="More"><a href="#More" class="headerlink" title="More"></a>More</h2><p>The code is modified based on this blog post:<br><a target="_blank" rel="noopener" href="https://www.fghrsh.net/post/123.html">https://www.fghrsh.net/post/123.html</a></p>
+<p>For more information, you can refer to the following links:<br><a target="_blank" rel="noopener" href="https://nocilol.me/archives/lab/add-dynamic-poster-girl-with-live2d-to-your-blog-02">https://nocilol.me/archives/lab/add-dynamic-poster-girl-with-live2d-to-your-blog-02</a><br><a target="_blank" rel="noopener" href="https://github.com/guansss/pixi-live2d-display">https://github.com/guansss/pixi-live2d-display</a></p>
+<p>For more models:<br><a target="_blank" rel="noopener" href="https://github.com/zenghongtu/live2d-model-assets">https://github.com/zenghongtu/live2d-model-assets</a></p>
+<p>In addition to that, there are desktop versions available:<br><a target="_blank" rel="noopener" href="https://github.com/TSKI433/hime-display">https://github.com/TSKI433/hime-display</a><br><a target="_blank" rel="noopener" href="https://github.com/amorist/platelet">https://github.com/amorist/platelet</a><br><a target="_blank" rel="noopener" href="https://github.com/akiroz/Live2D-Widget">https://github.com/akiroz/Live2D-Widget</a><br><a target="_blank" rel="noopener" href="https://github.com/zenghongtu/PPet">https://github.com/zenghongtu/PPet</a><br><a target="_blank" rel="noopener" href="https://github.com/LikeNeko/L2dPetForMac">https://github.com/LikeNeko/L2dPetForMac</a></p>
+<p>And also Wallpaper Engine:<br><a target="_blank" rel="noopener" href="https://github.com/guansss/nep-live2d">https://github.com/guansss/nep-live2d</a></p>
+<p>Official Live2D websites:<br><a target="_blank" rel="noopener" href="https://www.live2d.com/en/">https://www.live2d.com/en/</a></p>
+<h2 id="License"><a href="#License" class="headerlink" title="License"></a>License</h2><p>This repository does not contain any models. The copyrights of all Live2D models, images, and motion data used for demonstration purposes belong to their respective original authors. They are provided for research and learning purposes only and should not be used for commercial purposes.</p>
+<p>The code in this repository (excluding parts covered by the Live2D Proprietary Software License and the Live2D Open Software License) is released under the GNU General Public License v3<br><a target="_blank" rel="noopener" href="http://www.gnu.org/licenses/gpl-3.0.html">http://www.gnu.org/licenses/gpl-3.0.html</a></p>
+<p>Please comply with the relevant licenses when using any Live2D-related code:</p>
+<p>License for Live2D Cubism SDK 2.1:<br><a target="_blank" rel="noopener" href="https://docs.google.com/document/d/10tz1WrycskzGGBOhrAfGiTSsgmyFy8D9yHx9r_PsN8I/">Live2D SDK License Agreement (Public)</a></p>
+<p>License for Live2D Cubism SDK 5:<br>Live2D Cubism Core is provided under the Live2D Proprietary Software License.<br><a target="_blank" rel="noopener" href="https://www.live2d.com/eula/live2d-proprietary-software-license-agreement_en.html">https://www.live2d.com/eula/live2d-proprietary-software-license-agreement_en.html</a><br>Live2D Cubism Components are provided under the Live2D Open Software License.<br><a target="_blank" rel="noopener" href="https://www.live2d.com/eula/live2d-open-software-license-agreement_en.html">https://www.live2d.com/eula/live2d-open-software-license-agreement_en.html</a></p>
+<h2 id="Update-Log"><a href="#Update-Log" class="headerlink" title="Update Log"></a>Update Log</h2><p>Starting from January 1, 2020, this project no longer depends on jQuery.</p>
+<p>Starting from November 1, 2022, this project no longer requires users to separately load Font Awesome.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+
+</article>
+
+
+
+
+
+
+
+
+
+
+</section>
+        </div>
+        <footer id="footer" aria-label="Site footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info">
+    
+    <div>
+      <span class="icon-copyright"></span>
+      
+      
+      
+        2025
+      
+      <span class="footer-info-sep rotate"></span>
+      mukari
+    </div>
+    
+      <div>
+        Powered by&nbsp;<a href="https://hexo.io/" rel="noopener nofollow noreferrer" target="_blank">Hexo</a>&nbsp;
+        Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" rel="noopener nofollow noreferrer" target="_blank">Reimu</a>
+      </div>
+    
+    
+      <div>
+        <span class="icon-brush"></span>
+        6.7k
+        &nbsp;|&nbsp;
+        <span class="icon-coffee"></span>
+        00:46
+      </div>
+    
+    
+    
+    
+    
+  </div>
+</footer>
+
+        
+          <div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div>
+        
+        <div id="mask" class="hide"></div>
+      </div>
+      <nav id="mobile-nav" aria-label="Mobile navigation">
+  <div class="sidebar-wrap">
+    
+      <div class="sidebar-author">
+  <img data-src="/avatar/avatar.webp" data-sizes="auto" alt="mukari" class="lazyload">
+  <div class="sidebar-author-name">mukari</div>
+  <div class="sidebar-description"></div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Post</div>
+    <div class="sidebar-state-number">11</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Category</div>
+    <div class="sidebar-state-number">1</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tag</div>
+    <div class="sidebar-state-number">2</div>
+  </div>
+</div>
+<div class="sidebar-social">
+  
+</div>
+<div class="sidebar-menu">
+  
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/" aria-label="Home"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">Home</div>
+      </div>
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/archives" aria-label="Archives"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">Archives</div>
+      </div>
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/about" aria-label="About"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">About</div>
+      </div>
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/friend" aria-label="Friend"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">Friend</div>
+      </div>
+    
+  
+</div>
+
+    
+  </div>
+  
+</nav>
+
+    </div>
+    
+    
+    
+    
+<script src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js" integrity="sha384-3gT&#x2F;vsepWkfz&#x2F;ff7PpWNUeMzeWoH3cDhm&#x2F;A8jM7ouoAK0&#x2F;fP&#x2F;9bcHHR5kHq2nf+e" crossorigin="anonymous"></script>
+
+
+<script src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha384-J08i8An&#x2F;QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script>
+
+
+
+  
+<script src="https://npm.webcache.cn/material-theme@1.0.0/dist/material-theme.umd.js" integrity="sha384-vLev0II0HKFaxkcm+&#x2F;7kX5IGwVFBASkGchU311wmU&#x2F;veIj2bB0UcBkQbW6yw2asK" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+  
+<script src="/js/aos.js"></script>
+
+  <script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', aosInit);
+    } else {
+      aosInit();
+    }
+  </script>
+
+
+
+<script src="/js/pjax_script.js" data-pjax></script>
+
+
+
+
+
+
+
+  
+<script src="https://npm.webcache.cn/mouse-firework@0.1.1/dist/index.umd.js" integrity="sha384-8LyaidD9GPxQQgLJO&#x2F;WRw&#x2F;O2h3BoNq&#x2F;ApI&#x2F;ecpvM6RsrCz2qP2ppBXUKihP4V&#x2F;2d" crossorigin="anonymous"></script>
+
+  <script>
+    window.firework && window.firework(JSON.parse('{"excludeElements":["a","button"],"particles":[{"shape":"circle","move":["emit"],"easing":"easeOutExpo","colors":["var(--red-1)","var(--red-2)","var(--red-3)","var(--red-4)"],"number":20,"duration":[1200,1800],"shapeOptions":{"radius":[16,32],"alpha":[0.3,0.5]}},{"shape":"circle","move":["diffuse"],"easing":"easeOutExpo","colors":["var(--red-0)"],"number":1,"duration":[1200,1800],"shapeOptions":{"radius":20,"alpha":[0.2,0.5],"lineWidth":6}}]}'))
+  </script>
+
+
+
+
+
+
+
+  
+<script src="https://npm.webcache.cn/live2d-widgets@0.9.0/autoload.js" integrity="sha384-poTN7wN&#x2F;SqNhQqo3jdFeX20ikddWeFGkUkDEzsKjgH&#x2F;ez8aQLn81oI0Cw6q5xNyB" crossorigin="anonymous"></script>
+
+
+
+
+
+<div id="lazy-script">
+  <div>
+    
+      
+      
+      <script data-pjax>
+        window.REIMU_POST = {
+          author: "mukari",
+          title: "",
+          url: "https://yakumomukari.github.io/live2d-widget/README.en.html",
+          excerpt: "",
+          description: "",
+          stripContent: "Live2D Widget 中文 Features Add Live2D widget to web page Lightweight, with no runtime dependencies other than Live2D Cubism Core Core code is written in TypeScript, making it easy to integrate   Note: The character models above are for demonstration p",
+          date: "Sun Oct 26 2025 22:08:37 GMT+0800",
+          updated: "Sun Oct 26 2025 22:08:37 GMT+0800",
+          cover: "/images/banner.webp",
+        };
+      </script>
+       
+    
+    
+      
+        
+<script src="/js/insert_highlight.js" data-pjax></script>
+
+        
+      
+    
+    
+      <script type="module" data-pjax>
+        const PhotoSwipeLightbox = (await safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js", "sha384-DiL6M/gG+wmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF/N6lrZi/")).default;
+        const initPswp = (gallery, children) => {
+          if (_$$(`${gallery} ${children}`).length > 0) {
+            new PhotoSwipeLightbox({
+              gallery,
+              children,
+              pswpModule: () => safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8+oTJ7m3DfYEWX1fu1scuS4+s")
+            }).init();
+          }
+        }
+        const pswp = () => {
+          initPswp('.article-entry', 'a.article-gallery-item');
+          initPswp('.article-gallery', 'a.article-gallery-item');
+          window.lightboxStatus = 'done';
+          window.removeEventListener('lightbox:ready', pswp);
+        }
+        if(window.lightboxStatus === 'ready') {
+          pswp()
+        } else {
+          window.addEventListener('lightbox:ready', pswp);
+        }
+      </script>
+      
+        
+
+
+
+
+
+
+
+
+      
+    
+  </div>
+</div>
+
+
+  <script>
+    console.log(String.raw`%c 
+ ______     ______     __     __    __     __  __    
+/\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+\ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+ \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+  \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                  
+`,'color: #ff5252;')
+    console.log('%c Theme.Reimu v' + '1.10.2' + ' %c https://github.com/D-Sketon/hexo-theme-reimu ', 'color: white; background: #ff5252; padding:5px 0;', 'padding:4px;border:1px solid #ff5252;')
+  </script>
+  
+
+<script data-pjax>
+  var updateTime = _$('#post-update-time')?.innerHTML;
+
+  if (updateTime) {
+    const update = new Date(updateTime);
+    const now = new Date();
+    const diff = now - update;
+    const days = diff / 86400000;
+    const { daysAgo, message: template } = window.REIMU_CONFIG.outdate;
+    if (days >= daysAgo) {
+      let message = `This article was last updated on ${updateTime}. Please note that the content may no longer be applicable.`;
+      if (typeof template === 'string') {
+        message = template.replace(/{time}/, updateTime);
+      } else if (typeof template === 'object') {
+        const lang = document.documentElement.lang;
+        const messageKey = Object.keys(template).find(key => key.toLowerCase() === lang.toLowerCase());
+        if (messageKey && template[messageKey]) {
+          message = template[messageKey].replace(/{time}/, updateTime);
+        }
+      }
+      const blockquote = _$('#outdate-blockquote');
+      if (blockquote) {
+        blockquote.querySelectorAll('p')[1].innerText = message;
+        blockquote.style.display = 'flow-root';
+      }
+    }
+  }
+</script>
+
+
+
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      for (let registration of registrations) {
+        registration.unregister();
+      }
+    });
+  }
+</script>
+
+
+
+  
+    
+<script src="https://npm.webcache.cn/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha384-Wuix6BuhrWbjDBs24bXrjf4ZQ5aFeFWBuKkFekO2t8xFU0iNaLQfp2K6&#x2F;1Nxveei" crossorigin="anonymous" defer data-pjax></script>
+
+    <script data-pjax>
+      window.MathJax = {"tex":{"tags":"ams","useLabelIds":true,"inlineMath":[["$","$"],["\\\\(","\\\\)"]],"displayMath":[["$$","$$"],["\\\\[","\\\\]"]],"processEscapes":true,"processEnvironments":true,"autoload":{"color":[],"colorv2":["color"]},"packages":{"[+]":["noerrors"]}},"options":{"skipHtmlTags":["script","noscript","style","textarea","pre","code"],"ignoreHtmlClass":"tex2jax_ignore","processHtmlClass":"tex2jax_process"},"loader":{"load":["input/asciimath","[tex]/noerrors"]}};
+    </script>
+  
+
+
+
+
+
+
+
+    
+  </body>
+  </html>
+
